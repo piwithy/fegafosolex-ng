@@ -13,10 +13,10 @@ services:
       - php
 
   php:
-    image: php:fpm-bullseye
-#    build:
-#      context: ./php
-#      dockerfile: dockerfile
+#    image: php:fpm-bullseye
+    build:
+      context: ./php
+      dockerfile: dockerfile
     volumes:
       - ./www:/var/www/html
     expose:

@@ -1,1 +1,49 @@
-<h1>Comming Soon!</h1>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Les Courses Solex en Live !</title>
+        <link rel="icon" href="favicon.ico">
+        <!-- Fontawsome Icons -->
+        <script src="https://kit.fontawesome.com/09d79beec4.js" crossorigin="anonymous"></script>
+        <!-- Noto Sans Font -->
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Jquery 3.6.0 -->
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <nav class="navtop">
+            <div>
+                <h1><a href="https://solexiroise.fr/"><img src="assets/solexIroiseLogo_White.png"></a></h1>
+                <a href="https://fegaf.fr"><img src="https://www.fegaf.fr/files/images/logo_fegaf_reduit.png"></a>
+            </div>
+        </nav>
+        <div id="content" class="content">
+            <div id="default">
+                <h2>Nous sommes désolés</h2>
+	            Le chargment de la page a été interompu 😣</br> 
+                Veillez patientez nous faisons le maximum pour retablir la connexion
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                const urlParams = new URLSearchParams(window.location.search);
+                if(urlParams.get("race") == null){
+                    $('#content').load("common/race_selector.php");
+                }else{
+                    let race_str = urlParams.get("race").replaceAll(" ", "%20");
+                    $('#content').load(`common/race_ranking.php?race=${race_str}`);
+                    setInterval(function () {
+                        $('#content').load(`common/race_ranking.php?race=${race_str}`);
+                    }, 4000);
+                }
+            });
+        </script>
+    </body>
+</html>
