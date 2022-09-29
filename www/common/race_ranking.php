@@ -87,11 +87,11 @@
                 <?php echo "<td data-label='Dernier Temps'>".$team->lastTime."</td>"?>
                 <?php 
                     if($team->ecartPrev != "0:00,00") echo "<td data-label='Ecart Précédent'>".$team->ecartPrev."</td>";
-                    else echo "<td>---</td>"
+                    else echo "<td data-label='Ecart Précédent'>---</td>"
                 ?>
                 <?php 
                     if($team->ecartFirst != "0:00,00") echo "<td data-label='Ecart Premier'>".$team->ecartFirst."</td>";
-                    else echo "<td>---</td>"
+                    else echo "<td data-label='Ecart Premier'>---</td>"
                 ?>
 
                 
