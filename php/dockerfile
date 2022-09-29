@@ -1,0 +1,3 @@
+FROM php:fpm-bullseye
+
+RUN cp 	/usr/local/etc/php/php.ini-production 	/usr/local/etc/php/php.ini
