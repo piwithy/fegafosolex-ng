@@ -1,0 +1,18 @@
+#
+# xml ChangeLog
+# A simple XML Parser
+#
+:: 1.04
+FIX   Fixed some other compilation errors
+
+:: 1.03
+FIX   Fixed numerous PHP Notice/Strict standards error messages
+
+:: 1.02
+ENH   now distinguish parsefile/parsebuffer and all is in "xmlparser" class (not in module !!)
+
+:: 1.01
+FIX   Several bug fixes in XML Parser (addNode, dump)
+
+:: 1.00
+Initial version

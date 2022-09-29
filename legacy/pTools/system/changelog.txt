@@ -1,0 +1,7 @@
+#
+# system ChangeLog
+# "Background OS onto PHP runs" utility
+#
+
+:: 1.00
+Initial version with semaphore, utf8ToSystem

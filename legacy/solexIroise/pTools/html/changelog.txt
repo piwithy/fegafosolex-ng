@@ -1,0 +1,81 @@
+#
+# HTML ChangeLog
+# HTML Generation common functions
+#
+:: 1.24
+ENH   Enhanced no column detection bug fix if empty table: also take numColumns into account
+
+:: 1.23
+FIX	  Fixed no column detection if empty table with TH only. Caused no input field at all!
+
+:: 1.22
+ADD   Added removeTR feature to allow external delete row feature
+ADD   Added removeCOL feature to allow external delete column feature
+
+:: 1.21
+ENH   Implemented input auto-redim
+
+:: 1.20
+ADD   Added textarea support for HTMLEditor
+
+:: 1.19
+FIX   Fixed HTMLEditor was not working properly with ignored columns (columns < TDs.length)
+
+:: 1.18
+FIX   Fixed CHTML:: helpers function now works with accuentated characters (internal call to CHTML::toHTML)
+
+:: 1.17
+ENH   TableEditor now removes N last lines if empty (instead of single one)
+
+:: 1.16
+ADD   Added TableEditor STOP feature
+
+:: 1.15
+ENH   Forced text presentation of classicStyle if someone overloads pToolsClassicStyles.css
+
+:: 1.14
+FIX   Fixed TableEditor loop due to new navigatorCompat 1.32
+
+:: 1.13
+FIX   Fixed badly interpreted CHTML::toHTML secondparameter, TOTAL INCOMPATIBILITY WITH PREVIOUS RELEASE !!
+
+:: 1.12
+ADD   TableEditor added 'none' inputtype
+
+:: 1.11
+ADD   TableEditor adds inputtype capability; can now edit has text input, or select input
+ADD   TableEditor WARNING INCOMPATIBILITY: User should call start() after TableEditor constructor
+
+:: 1.10
+?
+
+:: 1.09
+ENH   TableEditor has not facultative 'javascript' callbacks (can be null)
+
+:: 1.08
+ENH   CHTML::toHTML Added extraparameter 'noBR' if you don't want BR/ to be added instead of \n
+
+:: 1.07
+FIX   CHTML::toHTML is now using same charset encoding as CHTML::prolog_XHTML
+
+:: 1.06
+FIX   Temporary fix of CHTML::toHTML htmlspecialchars using ENT_COMPAT, ISO8859-1
+
+:: 1.05
+ADD   Added TableEditor
+
+:: 1.04
+ADD   Added standard 'javascript' redirection
+
+:: 1.03
+ADD   Added standard 'javascript' insertion
+
+:: 1.02
+FIX   Bug fixes concerning charset handling
+
+:: 1.01
+ADD   Replacement for pTools String; HTMLTable.js
+ENH   Several addition to support XHTML 1.0 Transitional prolog and various header_xxx functions
+
+:: 1.00
+Initial version
