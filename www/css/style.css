@@ -230,6 +230,11 @@ body.loggedin {
     background-color: white;
 }
 
+.Electrique {
+    color: white;
+    background-color: green;
+}
+
 .red{
     color: red;
 }
