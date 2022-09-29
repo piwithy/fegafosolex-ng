@@ -31,7 +31,9 @@
         $resp = curl_exec($curl);
         curl_close($curl);
 
-        $xml = simplexml_load_string($resp);
+        $resp_utf8 = utf8_encode($resp);
+
+        $xml = simplexml_load_string($resp_utf8);
 
         if($xml != false){
 
