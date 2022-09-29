@@ -1,0 +1,30 @@
+#
+# HTTP ChangeLog
+# Accessing an HTTP external web site
+#
+:: 1.07 (03/08/2014)
+ADD		Added support of HTTP transfer-encoding 'chunked' responses
+
+:: 1.06 (27/07/2014)
+FIX		Fixed 'connect error' debug message displayed and socket_connect warking
+
+:: 1.05 (27/07/2014)
+FIX		Fixed bad HTTP response parsing including \r\n end of header inside body
+
+:: 1.04 (08/12/2013)
+FIX   Fixed non working Multipart POST requests
+
+:: 1.03 (02/11/2013)
+FIX   Fixed notice (and probably bug) in uri path parsing
+
+:: 1.02 (22/11/2012)
+ENH   Using class 'HTTPRequest'/'HTTPResponse' , based on INWES C++ project
+ADD   Added HTTPCookie structure
+ADD   Added support of posting data using GET Method
+ADD   Added support of posting data using 'url encode' method (along with existing 'multipart/form-data' method)
+
+:: 1.01
+ENH   Now object version (was not)
+
+:: 1.00
+Initial version

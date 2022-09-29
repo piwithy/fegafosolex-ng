@@ -1,0 +1,43 @@
+<html>
+<head>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="../navigatorCompat/_pToolsnavigatorCompat.js"></script>
+</head>
+<body>
+entrer des adresses email ou des domaines (1 par ligne):<br/>
+<textarea id='mytextarea' rows="20" cols="50"></textarea>
+<br/>
+<input type="button" onClick="checkText();" value="Check"/>
+<div id='result'>resultat ici</div>
+<script type="text/javascript">
+function checkText()
+{
+	document.getElementById('result').innerHTML="";
+	var txt = document.getElementById('mytextarea').value;
+	var lines = txt.split("\n");
+	for (var a=0; a < lines.length; a++)
+	{
+		checkLine(lines[a]);
+	}
+}
+
+function checkLine(line)
+{
+	if (line=="")
+		return;
+	var arrobase = line.indexOf('@');
+	if (arrobase==-1)
+		checkDomain(line);
+	else
+		checkDomain(line.substring(arrobase+1));
+}
+
+function checkDomain(domai)
+{
+	domai = domai.trim();
+	if (!isKnownDomain(domai))
+		document.getElementById('result').innerHTML += "\""+domai+"\" is unknown<br/>\n";
+}
+</script>
+</body>
+</html>

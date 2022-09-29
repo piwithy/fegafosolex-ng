@@ -1,0 +1,157 @@
+/* 
+  pToolsDefault.css
+  Default style for all sites, ensure strict same dislay between browser and avoid
+  default unknown margins/paddings
+  
+  reminder for margin/padding : "TOP RIGHT BOTTOM LEFT"
+*/
+body
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+  font-size: 12px;
+  background: white;
+}
+
+div
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+img
+{
+	border: 0px;
+	vertical-align: middle;
+}
+
+a
+{
+  text-decoration: underline;
+  color: blue;
+}
+
+h1
+{
+  font-size: 24px;
+  padding: 0;
+  margin: 0px 0px 12px 0px;
+}
+
+h2
+{
+  font-size: 18px;
+  padding: 0;
+  margin: 0px 0px 10px 0px;
+}
+
+h3
+{
+  font-size: 16px;
+  padding: 0;
+  margin: 0px 0px 8px 0px;
+}
+
+h4
+{
+  font-size: 12px;
+  padding: 0;
+  margin: 0px 0px 6px 0px;
+}
+
+/* TABLE */
+table
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+  border-collapse: collapse;
+}
+
+thead
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+tbody
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+  font-size: 12px;
+}
+
+th
+{
+  text-align: left;
+  font-weight: bold;
+}
+
+tr
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+td
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	vertical-align: top;
+}
+
+/* FORMULAR */
+form
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+input[type='text']
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+input[type='radio']
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+input[type='checkbox']
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	vertical-align: middle;
+}
+
+input[type='button']
+{
+	margin: 0px 0px 0px 0px;
+	padding: 1px 2px 1px 2px; /* exception I did not put 0 by default because it's always used for presentation ... */
+}
+
+select
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+label
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+fieldset
+{
+  display: inline;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 2px 2px 2px; /* exception I did not put 0 by default because it's always used for presentation ... */
+}
+
+legend
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}

@@ -1,0 +1,25 @@
+moderntable 
+{
+  border-spacing: 0px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.moderntable th 
+{
+  padding: 5px;
+  background: rgb(51, 51, 51);
+  /*font-variant: small-caps;*/
+  color: white;
+  font-size: 14px;
+  border: 1px solid black;
+}
+
+.moderntable td 
+{
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid black;
+}

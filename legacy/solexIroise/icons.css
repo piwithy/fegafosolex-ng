@@ -1,0 +1,32 @@
+.iconUp
+{
+  background: url("up.png") no-repeat;
+  background-size: 20px 20px;
+  width: 20px;
+  font-size: 18px;
+  height: 20px;
+  display: inline;
+  padding: 0 20px 0 0;
+}
+
+.iconStable
+{
+  background: url("stable.png") no-repeat;
+  background-size: 20px 20px;
+  width: 20px;
+  font-size: 18px;
+  height: 20px;
+  display: inline;
+  padding: 0 20px 0 0;
+}
+
+.iconDown
+{
+  background: url("down.png") no-repeat;
+  background-size: 20px 20px;
+  width: 20px;
+  font-size: 18px;
+  height: 20px;
+  display: inline;
+  padding: 0 20px 0 0;
+}

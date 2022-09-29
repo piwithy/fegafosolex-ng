@@ -1,2 +1,2 @@
-# Live FegafOSolex NG
+# Live Fegaf O Solex NG
 
