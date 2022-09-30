@@ -320,9 +320,31 @@ body.loggedin {
         margin: 0 auto;
         width: 100px;
     }
+    .navtop div a{
+        padding: 10px 0 10px 0;
+    }
+
+    .navtop div a:hover{
+        background-color: rgba(53,53,53,0.5);
+    }
 
     .navtop {
         height: 100%;
     }
 
+    .back a:hover {
+        background-color: rgba(106,106,106,.1);
+    }
+
+}
+
+.back a {
+    text-decoration: none;
+    color: #4a536e;
+    display: inline-block;
+    padding: 5px;
+}
+
+.back a:hover {
+    background-color: rgba(106,106,106,.1);
 }

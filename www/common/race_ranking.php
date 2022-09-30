@@ -43,6 +43,8 @@
 ?>
 
 <div id="ranking">
+    <span class='back'><a href='index.html'><i class="fa-solid fa-arrow-left-long"></i> Retour</a></span>
+
     <h2><?php echo($xml->attributes()->plateau. " | " . $xml->attributes()->race) ?></h2>
     <span>Derniere mise à jour du classement : <?php echo($xml->attributes()->timegen) ?></span>
     
