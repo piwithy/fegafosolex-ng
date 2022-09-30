@@ -67,6 +67,7 @@
                 foreach($xml->result as $result){
                     $team = $result->attributes();
                     $categoryClass = str_replace("é", "e", str_replace(" ", "_", $team->teamCategory));
+                    if($categoryClass == "") $categoryClass= "Unknown";
                     if($team->tours == 0){
                         $team->bestTime = "N/A";
                         $team->bestTimeLap = "N/A";
@@ -79,7 +80,7 @@
             <tr>
                 <td data-label="Tendence">
                     <?php
-                        if($team->passedRaceStop == 1) echo '<i class="fa-solid fa-flag-checkered"></i>';
+                        if($team->passedRaceStop == 1) echo '<i class="fa-solid fa-flag-checkered themed"></i>';
                         elseif($team->tendance == -1) echo '<i class="fa-solid fa-angle-up green"></i>';
                         elseif($team->tendance == 0) echo '<i class="fa-solid fa-minus turquoise"></i>';
                         else echo '<i class="fa-solid fa-angle-down red"></i>';
