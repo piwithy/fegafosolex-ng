@@ -7,123 +7,44 @@
 }
 
 body {
-    background-color: #f3f4f7;
+    background-color: #d3d4d7;
 }
 
-.login {
-    width: 400px;
-    background-color: #ffffff;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-    margin: 100px auto;
-}
-
-.login h1 {
-    text-align: center;
-    color: #5b6574;
-    font-size: 24px;
-    padding: 20px 0 20px 0;
-    border-bottom: 1px solid #dee0e4;
-}
-
-.login h2 {
-    text-align: center;
-    font-size: 32px;
-    color: red;
-}
-
-.login form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 20px;
-}
-
-.login form label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #3274d6;
-    color: #ffffff;
-}
-
-.login form input[type="password"], .login form input[type="text"] {
-    width: 310px;
-    height: 50px;
-    border: 1px solid #dee0e4;
-    margin-bottom: 20px;
-    padding: 0 15px;
-}
-
-.login form input[type="submit"] {
+nav{
     width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background-color: #3274d6;
-    border: 0;
-    cursor: pointer;
-    font-weight: bold;
-    color: #ffffff;
-    transition: background-color 0.2s;
-}
-
-.login form input[type="submit"]:hover {
-    background-color: #2868c7;
-    transition: background-color 0.2s;
-}
-
-.navtop {
+    display: flex;
+    padding: 10px;
     background-color: #6a6a6a;
-    /*background-color: #2f3947;*/
-    height: 60px;
-    width: 100%;
-    border: 0;
 }
 
-.navtop div a img {
-    height: 50px;
+nav .nav_padding {
+    width: 10%;
 }
 
-.navtop div {
-    display: flex;
-    margin: 0 auto;
-    width: 1000px;
-    height: 100%;
+nav .empty{
+    flex-grow: 1;
 }
 
-.navtop div h1, .navtop div a {
-    display: inline-flex;
-    align-items: center;
+nav img{
+    max-height: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-.navtop div h1 {
-    flex: 1;
-    font-size: 24px;
-    padding: 0;
-    margin: 0;
-    color: #eaebed;
-    font-weight: normal;
+nav a{
+    display: block;
 }
 
-.navtop div a {
-    padding: 0 20px;
-    text-decoration: none;
-    color: #c1c4c8;
-    font-weight: bold;
+nav a:hover{
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.navtop div a i {
-    padding: 2px 8px 0 0;
+nav .mobile-empty{
+    visibility: hidden;
+    background-color: lime;
+    flex-grow: 0;
 }
 
-.navtop div a:hover {
-    color: #eaebed;
-}
-
-body.loggedin {
-    background-color: #f3f4f7;
-}
 
 .content {
     width: 80%;
@@ -139,31 +60,11 @@ body.loggedin {
     color: #4a536e;
 }
 
-.user_card h3 {
-    margin: 0;
-    padding: 25px 0 0 0;
-    font-size: 18px;
-    color: #4a536e;
-
-}
-
-.user_card{
-    border-bottom: 1px solid #e0e0e3;
-}
-
-.user_card form{
-    margin: 5px 0 15px 0;
-    padding: 0;
-}
-.user_card form label{
-    margin: 5px 0;
-}
-
 .content > p, .content > div {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     margin: 25px 0;
     padding: 25px;
-    background-color: #fff;
+    background-color: #f6f6f4;
 }
 
 .content > p table td, .content > div table td {
@@ -184,21 +85,6 @@ body.loggedin {
 .content form {
     text-align: center;
 }
-
-.footer_login {
-    width: 400px;
-    margin: 100px auto;
-    color: #ccc;
-    text-align: center;
-}
-
-/*
-.footer {
-/ / width: 400 px;
-    margin: 100px auto;
-    text-align: center;
-}
-*/
 
 #selector form{
     display: block;
@@ -227,12 +113,37 @@ body.loggedin {
 
 .Origine {
     color: black;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 .Electrique {
     color: white;
     background-color: green;
+}
+
+.Mob_ameliore{
+    color: orange;
+    background-color: blue;
+}
+
+.Mob_production{
+    color: black;
+    background-color: orange;
+}
+
+.Scooter{
+    color: black;
+    background-color: red;
+}
+
+.Mecaboite_50cc{
+    color: red;
+    background-color: black;
+}
+
+.Unknown{
+    color: lightgrey;
+    background-color: white;
 }
 
 .red{
@@ -268,6 +179,10 @@ body.loggedin {
 
 #ranking table td:nth-child(4){
     text-align: left;
+}
+
+.themed {
+    color:#4a536e;
 }
 
 @media screen and (max-width: 1080px){
@@ -314,22 +229,20 @@ body.loggedin {
         text-transform: uppercase;
     }
 
-    .navtop div {
-        display: flex;
+    nav {
         flex-direction: column;
         margin: 0 auto;
-        width: 100px;
+        width: 100%;
+        justify-content: center;
     }
-    .navtop div a{
+    nav a{
         padding: 10px 0 10px 0;
+        display: flex;
     }
 
-    .navtop div a:hover{
-        background-color: rgba(53,53,53,0.5);
-    }
-
-    .navtop {
-        height: 100%;
+    nav .mobile-empty{
+        background-color: lime;
+        flex-grow: 1;
     }
 
     .back a:hover {
@@ -347,4 +260,31 @@ body.loggedin {
 
 .back a:hover {
     background-color: rgba(106,106,106,.1);
+}
+
+@media(prefers-color-scheme: dark){
+    body {
+        background-color: #121212;
+        color: white;
+    }
+
+    .content > p, .content > div {
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+        margin: 25px 0;
+        padding: 25px;
+        background-color: #0a0a0c;
+    }
+
+    .content h2 {
+        color: rgb(182, 173, 146) /*#4a536e*/;
+    }
+
+    .back a{
+        color:rgb(182, 173, 146);
+    }
+
+    .themed {
+        color:rgb(182, 173, 146);
+    }
+
 }
