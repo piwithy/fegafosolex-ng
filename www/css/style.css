@@ -127,6 +127,75 @@ nav .mobile-empty{
 }
 
 
+.back a {
+    text-decoration: none;
+    color: #4a536e;
+    display: inline-block;
+    padding: 5px;
+}
+
+.back a:hover {
+    background-color: rgba(106,106,106,.1);
+}
+
+/*Styling For Number Plates According to Machine Category */
+
+.super_prototype {
+    color: white;
+    background-color: red;
+}
+
+.prototype {
+    color: white;
+    background-color: black;
+}
+
+.promotion {
+    color: black;
+    background-color: yellow;
+}
+
+.origine_ameliore {
+    color: white;
+    background-color: blue;
+}
+
+.origine {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.electrique {
+    color: white;
+    background-color: green;
+}
+
+.mob_ameliore{
+    color: orange;
+    background-color: blue;
+}
+
+.mob_production{
+    color: black;
+    background-color: orange;
+}
+
+.scooter{
+    color: black;
+    background-color: red;
+}
+
+.mecaboite_50cc{
+    color: red;
+    background-color: black;
+}
+
+.unknown{
+    color: gray;
+    background-color: white;
+}
+
+
 /* Narrow Screen Style */
 @media screen and (max-width: 1080px){
     .content{
@@ -194,16 +263,6 @@ nav .mobile-empty{
 
 }
 
-.back a {
-    text-decoration: none;
-    color: #4a536e;
-    display: inline-block;
-    padding: 5px;
-}
-
-.back a:hover {
-    background-color: rgba(106,106,106,.1);
-}
 
 
 /* Dark Theme Handling */
@@ -232,61 +291,10 @@ nav .mobile-empty{
         color:rgb(182, 173, 146);
     }
 
+    .unknown{
+        color: #2a2a2c;
+        background-color: #0a0a0c;
+    }
+
 }
 
-/*Styling For Number Plates According to Machine Category */
-
-.Super_Prototype {
-    color: white;
-    background-color: red;
-}
-
-.Prototype {
-    color: white;
-    background-color: black;
-}
-
-.Promotion {
-    color: black;
-    background-color: yellow;
-}
-
-.Origine_Ameliore {
-    color: white;
-    background-color: blue;
-}
-
-.Origine {
-    color: black;
-    background-color: rgb(255, 255, 255);
-}
-
-.Electrique {
-    color: white;
-    background-color: green;
-}
-
-.Mob_ameliore{
-    color: yellow;
-    background-color: blue;
-}
-
-.Mob_production{
-    color: black;
-    background-color: orange;
-}
-
-.Scooter{
-    color: black;
-    background-color: red;
-}
-
-.Mecaboite_50cc{
-    color: red;
-    background-color: black;
-}
-
-.Unknown{
-    color: gray;
-    background-color: white;
-}

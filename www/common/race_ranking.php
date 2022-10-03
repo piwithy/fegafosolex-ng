@@ -1,47 +1,46 @@
 <?php
     include 'remoteUrls.php';
-    if(isset($_GET['race'])){
-        $headers = array(
-            "Accept: */*",
-        );
-        if($_GET['race'] == "lastmod"){
-            $curl=curl_init($fegaf_resquester_url."?ls_lastmod");
-            curl_setopt($curl, CURLOPT_URL, $fegaf_resquester_url."?ls_lastmod");
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            $res = curl_exec($curl);
-            curl_close($curl);
-            $fegaf_data_url .=$res; 
-        }else{
-            $fegaf_data_url .= $_GET['race'];
+    include 'utils.php';
+
+    if(!isset($_GET['race'])){
+        gen_error_page();
+    }
+
+    $data_url;
+
+    $race_list = get_race_list($fegaf_resquester_url);
+
+    if($_GET['race'] == "lastmod"){
+        //checking if there is an active race to display
+        if(empty($race_list)) gen_error_page("not_found");
+        $race = query_data($fegaf_resquester_url."?ls_lastmod");
+        $data_url = $fegaf_data_url. $race;
+    } else {
+        // cheking if the requested race exists
+        if(!in_array($_GET['race'], $race_list)){
+            gen_error_page("not_found");
         }
+        $data_url = $fegaf_data_url.$_GET['race'];
+    }
+    $data_url = str_replace(" ", "%20", $data_url);
+
+    $race_data = query_data($data_url);
+
+    //trying to read XML Data
+    $xml = simplexml_load_string($race_data);
         
-        $fegaf_data_url = str_replace(" ", "%20", $fegaf_data_url);
-        //echo $fegaf_data_url;
+    if($xml == false){ // IF there is encoding error force UTF-8
+        $race_data_utf8 = utf8_encode($race_data);
+        $xml = simplexml_load_string($race_data_utf8);
+    }
 
-        $curl = curl_init($fegaf_data_url);
-        curl_setopt($curl, CURLOPT_URL, $fegaf_data_url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    if($xml == false) {
+        gen_error_page();
+    }
 
-        //for debug only!
-        //curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        //curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    date_default_timezone_set('Europe/Paris');
 
-        $resp = curl_exec($curl);
-        curl_close($curl);
-
-        $xml = simplexml_load_string($resp);
-        
-        if($xml == false){ // IF there is encoding error force UTF-8
-            $resp_utf8 = utf8_encode($resp);
-            $xml = simplexml_load_string($resp_utf8);
-        }
-        if($xml != false){
-
-
-        $now = date('d/m/Y h:i:s');
-        //print_r($xml);
+    $now = date('d/m/Y H:i:s T');
 ?>
 
 <div id="ranking">
@@ -68,8 +67,8 @@
             <?php 
                 foreach($xml->result as $result){
                     $team = $result->attributes();
-                    $categoryClass = str_replace("é", "e", str_replace(" ", "_", $team->teamCategory));
-                    if($categoryClass == "") $categoryClass= "Unknown";
+                    $categoryClass = str_replace("é", "e", str_replace(" ", "_", strtolower($team->teamCategory)));
+                    if($categoryClass == "") $categoryClass= "unknown";
                     if($team->tours == 0){
                         $team->bestTime = "N/A";
                         $team->bestTimeLap = "N/A";
@@ -113,16 +112,3 @@
     </table>
     <span>Dernier rafraichissement des données : <?php echo $now ?></span>
 </div>
-
-<?php
-        }else{
-?>
-        <div>
-            <h2>Nous sommes désolés</h2>
-	        Les données de la course séléctionnée sont corrompus 😭</br> 
-            Veillez retrouner à <a href="index.html">l'écran de selection des courses</a>
-        </div>
-<?php
-        }
-    }
-?>
