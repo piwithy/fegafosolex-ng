@@ -13,7 +13,6 @@ services:
       - php
 
   php:
-#    image: php:fpm-bullseye
     build:
       context: ./php
       dockerfile: dockerfile
@@ -21,4 +20,6 @@ services:
       - ./www:/var/www/html
     expose:
       - 9000
+    env_file:
+      - .env
     

@@ -1,3 +1,4 @@
 FROM php:fpm-bullseye
 
+# Copying PHP Prod Config
 RUN cp 	/usr/local/etc/php/php.ini-production 	/usr/local/etc/php/php.ini

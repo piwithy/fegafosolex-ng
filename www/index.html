@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Les Courses Solex en Live !</title>
+        <title>FegafOSolex NG |Les Courses Solex en Live !</title>
         <link rel="icon" href="favicon.ico">
         <!-- Fontawsome Icons -->
         <script src="https://kit.fontawesome.com/09d79beec4.js" crossorigin="anonymous"></script>
@@ -46,15 +46,22 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function () {
+                const appName = "FegafOSolex NG";
                 const urlParams = new URLSearchParams(window.location.search);
                 if(urlParams.get("race") == null){
                     $('#content').load("common/race_selector.php");
+                    $(document).prop('title', `${appName} | Les Courses Solex en Live !`)
                 }else{
                     let race_str = urlParams.get("race").replaceAll(" ", "%20");
+                    let page_title = urlParams.get("race").substring(0, urlParams.get("race").length - 4);
+                    if(urlParams.get("race") == "lastmod"){
+                        page_title = "Course Active";
+                    }
                     $('#content').load(`common/race_ranking.php?race=${race_str}`);
+                    $(document).prop('title', `${appName} | ${page_title}`);
                     setInterval(function () {
                         $('#content').load(`common/race_ranking.php?race=${race_str}`);
-                    }, 4000);
+                    }, 10000);
                 }
             });
         </script>

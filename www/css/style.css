@@ -71,12 +71,6 @@ nav .mobile-empty{
     padding: 5px;
 }
 
-.content > p table td:first-child, .content > div table td:first-child {
-    font-weight: bold;
-    color: #4a536e;
-    padding-right: 15px;
-}
-
 .content > div p {
     padding: 5px;
     margin: 0 0 10px 0;
@@ -91,60 +85,7 @@ nav .mobile-empty{
     margin-top: 0em;
 }
 
-.Super_Prototype {
-    color: white;
-    background-color: red;
-}
 
-.Prototype {
-    color: white;
-    background-color: black;
-}
-
-.Promotion {
-    color: black;
-    background-color: yellow;
-}
-
-.Origine_Ameliore {
-    color: white;
-    background-color: blue;
-}
-
-.Origine {
-    color: black;
-    background-color: rgb(255, 255, 255);
-}
-
-.Electrique {
-    color: white;
-    background-color: green;
-}
-
-.Mob_ameliore{
-    color: orange;
-    background-color: blue;
-}
-
-.Mob_production{
-    color: black;
-    background-color: orange;
-}
-
-.Scooter{
-    color: black;
-    background-color: red;
-}
-
-.Mecaboite_50cc{
-    color: red;
-    background-color: black;
-}
-
-.Unknown{
-    color: lightgrey;
-    background-color: white;
-}
 
 .red{
     color: red;
@@ -185,6 +126,77 @@ nav .mobile-empty{
     color:#4a536e;
 }
 
+
+.back a {
+    text-decoration: none;
+    color: #4a536e;
+    display: inline-block;
+    padding: 5px;
+}
+
+.back a:hover {
+    background-color: rgba(106,106,106,.1);
+}
+
+/*Styling For Number Plates According to Machine Category */
+
+.super_prototype {
+    color: white;
+    background-color: red;
+}
+
+.prototype {
+    color: white;
+    background-color: black;
+}
+
+.promotion {
+    color: black;
+    background-color: yellow;
+}
+
+.origine_ameliore {
+    color: white;
+    background-color: blue;
+}
+
+.origine {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.electrique {
+    color: white;
+    background-color: green;
+}
+
+.mob_ameliore{
+    color: orange;
+    background-color: blue;
+}
+
+.mob_production{
+    color: black;
+    background-color: orange;
+}
+
+.scooter{
+    color: black;
+    background-color: red;
+}
+
+.mecaboite_50cc{
+    color: red;
+    background-color: black;
+}
+
+.unknown{
+    color: gray;
+    background-color: white;
+}
+
+
+/* Narrow Screen Style */
 @media screen and (max-width: 1080px){
     .content{
         width: 100%;
@@ -251,17 +263,9 @@ nav .mobile-empty{
 
 }
 
-.back a {
-    text-decoration: none;
-    color: #4a536e;
-    display: inline-block;
-    padding: 5px;
-}
 
-.back a:hover {
-    background-color: rgba(106,106,106,.1);
-}
 
+/* Dark Theme Handling */
 @media(prefers-color-scheme: dark){
     body {
         background-color: #121212;
@@ -287,4 +291,10 @@ nav .mobile-empty{
         color:rgb(182, 173, 146);
     }
 
+    .unknown{
+        color: #2a2a2c;
+        background-color: #0a0a0c;
+    }
+
 }
+
