@@ -39,19 +39,21 @@
         }
         if($xml != false){
 
+
+        $now = date('d/m/Y h:i:s');
         //print_r($xml);
 ?>
 
 <div id="ranking">
     <span class='back'><a href='index.html'><i class="fa-solid fa-arrow-left-long"></i> Retour</a></span>
 
-    <h2><?php echo($xml->attributes()->plateau. " | " . $xml->attributes()->race) ?></h2>
+    <h2><?php echo(ucfirst($xml->attributes()->plateau). " | " . ucfirst($xml->attributes()->race)) ?></h2>
     <span>Derniere mise à jour du classement : <?php echo($xml->attributes()->timegen) ?></span>
     
     <table>
         <thead>
             <tr>
-                <th scope="col">Tend.</th>
+                <th scope="col">Évol.</th>
                 <th scope="col">Rang</th>
                 <th scope="col">N°</th>
                 <th scope="col">Équipage</th>
@@ -78,7 +80,7 @@
                     }
             ?>
             <tr>
-                <td data-label="Tendence">
+                <td data-label="Évolution">
                     <?php
                         if($team->passedRaceStop == 1) echo '<i class="fa-solid fa-flag-checkered themed"></i>';
                         elseif($team->tendance == -1) echo '<i class="fa-solid fa-angle-up green"></i>';
@@ -88,7 +90,7 @@
                 </td>
                 <?php echo "<td data-label='Rang'>".$team->rang."</td>"?>
                 <?php echo "<td data-label='N°' class='".$categoryClass."'>".$team->teamNumber."</td>"?>
-                <?php echo "<td data-label='Équipage'>".$team->teamName."</td>"?>
+                <?php echo "<td data-label='Équipage'>".ucfirst($team->teamName)."</td>"?>
                 <?php echo "<td data-label='Nombre de Tours'>".$team->tours."</td>"?>
                 <?php echo "<td data-label='Meilleur Temps (Tour)'>".$team->bestTime." (".$team->bestTimeLap.")"."</td>"?>
                 <?php echo "<td data-label='Dernier Temps'>".$team->lastTime."</td>"?>
@@ -109,6 +111,7 @@
             ?>
         </tbody>
     </table>
+    <span>Dernier rafraichissement des données : <?php echo $now ?></span>
 </div>
 
 <?php
