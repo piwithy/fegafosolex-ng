@@ -68,41 +68,44 @@
                 foreach($xml->result as $result){
                     $team = $result->attributes();
                     $categoryClass = str_replace("é", "e", str_replace(" ", "_", strtolower($team->teamCategory)));
+                    if($team->rang == "") $team->rang = "-";
                     if($categoryClass == "") $categoryClass= "unknown";
+                    if($team->teamNumber == "") $team->teamNumber = "000";
+                    if($team->teamName == "") $team->teamName = "unknown";
                     if($team->tours == 0){
-                        $team->bestTime = "N/A";
-                        $team->bestTimeLap = "N/A";
-                        $team->lastTime = "N/A";
-                        $team->ecartPrev = "N/A";
                         $team->ecartFirst = "N/A";
-
+                    }
+                    if($team->lastTime == "") $team->lastTime = "N/A";
+                    if($team->bestTime == ""){
+                        $bestTimeString = "N/A" ;
+                    }else{
+                        $bestTimeString = $team->bestTime." (".$team->bestTimeLap.")";
+                    }
+                    if($team->ecartPrev == "" || $team->ecartPrev == "0:00,00"){
+                        $team->ecartPrev = "---";
+                    }
+                    if($team->ecartFirst == "" || $team->ecartFirst == "0:00,00"){
+                        $team->ecartFirst = "---";
                     }
             ?>
             <tr>
                 <td data-label="Évolution">
                     <?php
                         if($team->passedRaceStop == 1) echo '<i class="fa-solid fa-flag-checkered themed"></i>';
-                        elseif($team->tendance == -1) echo '<i class="fa-solid fa-angle-up green"></i>';
-                        elseif($team->tendance == 0) echo '<i class="fa-solid fa-minus turquoise"></i>';
-                        else echo '<i class="fa-solid fa-angle-down red"></i>';
+                        elseif($team->tendance == -1)  echo '<i class="fa-solid fa-angle-up green"></i>';
+                        elseif($team->tendance ==  0)  echo '<i class="fa-solid fa-minus turquoise"></i>';
+                        elseif($team->tendance ==  1)  echo '<i class="fa-solid fa-angle-down red"></i>';
+                        else                           echo '<i class="fa-solid fa-question themed></i>"';
                     ?>
                 </td>
                 <?php echo "<td data-label='Rang'>".$team->rang."</td>"?>
                 <?php echo "<td data-label='N°' class='".$categoryClass."'>".$team->teamNumber."</td>"?>
                 <?php echo "<td data-label='Équipage'>".ucfirst($team->teamName)."</td>"?>
                 <?php echo "<td data-label='Nombre de Tours'>".$team->tours."</td>"?>
-                <?php echo "<td data-label='Meilleur Temps (Tour)'>".$team->bestTime." (".$team->bestTimeLap.")"."</td>"?>
-                <?php echo "<td data-label='Dernier Temps'>".$team->lastTime."</td>"?>
-                <?php 
-                    if($team->ecartPrev != "0:00,00") echo "<td data-label='Ecart Précédent'>".$team->ecartPrev."</td>";
-                    else echo "<td data-label='Ecart Précédent'>---</td>"
-                ?>
-                <?php 
-                    if($team->ecartFirst != "0:00,00") echo "<td data-label='Ecart Premier'>".$team->ecartFirst."</td>";
-                    else echo "<td data-label='Ecart Premier'>---</td>"
-                ?>
-
-                
+                <?php echo "<td data-label='Meilleur Temps'>".$bestTimeString."</td>"?>
+                <?php echo "<td data-label='Dernier Temps'>&nbsp;".$team->lastTime."</td>" ?>
+                <?php echo "<td data-label='Ecart Précédent'>".$team->ecartPrev."</td>"?>
+                <?php echo "<td data-label='Ecart Premier'>".$team->ecartFirst."</td>"?>
             </tr>
 
             <?php
