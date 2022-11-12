@@ -1,4 +1,4 @@
-FROM php:fpm-bullseye
+FROM php:8.2.0RC6-fpm-bullseye
 
 # Copying PHP Prod Config
 RUN cp 	/usr/local/etc/php/php.ini-production 	/usr/local/etc/php/php.ini
