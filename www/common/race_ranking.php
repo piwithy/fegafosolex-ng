@@ -106,11 +106,11 @@
                 <?php echo("<td data-label='Rang'>".htmlspecialchars($team->rang, ENT_QUOTES, 'UTF-8')."</td>")?>
                 <?php echo("<td data-label='N°' class='".$categoryClass."'>".htmlspecialchars($team->teamNumber, ENT_QUOTES, 'UTF-8')."</td>")?>
                 <?php echo("<td data-label='Équipage'>".htmlspecialchars(ucfirst($team->teamName), ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='Nombre de Tours'>".$team->tours."</td>")?>
-                <?php echo("<td data-label='Meilleur Temps'>".$bestTimeString."</td>")?>
-                <?php echo("<td data-label='Dernier Temps'>&nbsp;".$team->lastTime."</td>")?>
-                <?php echo("<td data-label='Ecart Précédent'>".$team->ecartPrev."</td>")?>
-                <?php echo("<td data-label='Ecart Premier'>".$team->ecartFirst."</td>")?>
+                <?php echo("<td data-label='Nombre de Tours'>".htmlspecialchars($team->tours, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td data-label='Meilleur Temps'>".htmlspecialchars($bestTimeString, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td data-label='Dernier Temps'>&nbsp;".htmlspecialchars($team->lastTime, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td data-label='Ecart Précédent'>".htmlspecialchars($team->ecartPrev, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td data-label='Ecart Premier'>".htmlspecialchars($team->ecartFirst, ENT_QUOTES, 'UTF-8')."</td>")?>
             </tr>
 
             <?php
