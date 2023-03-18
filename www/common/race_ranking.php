@@ -72,7 +72,7 @@
             <?php 
                 foreach($xml->result as $result){
                     $team = $result->attributes();
-                    $categoryClass = str_replace("é", "e", str_replace(" ", "_", strtolower(htmlspecialchars($team->teamCategory), ENT_QUOTES, 'UTF-8')));
+                    $categoryClass = str_replace("é", "e", str_replace(" ", "_", strtolower(htmlspecialchars($team->teamCategory, ENT_QUOTES, 'UTF-8'))));
                     if($team->rang == "") $team->rang = "-";
                     if($categoryClass == "") $categoryClass= "unknown";
                     if($team->teamNumber == "") $team->teamNumber = "000";
