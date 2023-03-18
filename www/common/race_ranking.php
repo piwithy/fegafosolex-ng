@@ -41,13 +41,18 @@
     date_default_timezone_set('Europe/Paris');
 
     $now = date('d/m/Y H:i:s T');
+
+
+    function safe_echo($msg){
+        echo(htmlspecialchars($msg, ENT_QUOTES, 'UTF-8'));
+    }
 ?>
 
 <div id="ranking">
     <span class='back'><a href='index.html'><i class="fa-solid fa-arrow-left-long"></i> Retour</a></span>
 
-    <h2><?php echo(ucfirst($xml->attributes()->plateau). " | " . ucfirst($xml->attributes()->race)) ?></h2>
-    <span>Derniere mise à jour du classement : <?php echo($xml->attributes()->timegen) ?></span>
+    <h2><?php safe_echo(ucfirst($xml->attributes()->plateau). " | " . ucfirst($xml->attributes()->race)) ?></h2>
+    <span>Derniere mise à jour du classement : <?php safe_echo($xml->attributes()->timegen) ?></span>
     
     <table>
         <thead>
@@ -67,7 +72,7 @@
             <?php 
                 foreach($xml->result as $result){
                     $team = $result->attributes();
-                    $categoryClass = str_replace("é", "e", str_replace(" ", "_", strtolower($team->teamCategory)));
+                    $categoryClass = str_replace("é", "e", str_replace(" ", "_", strtolower(htmlspecialchars($team->teamCategory), ENT_QUOTES, 'UTF-8')));
                     if($team->rang == "") $team->rang = "-";
                     if($categoryClass == "") $categoryClass= "unknown";
                     if($team->teamNumber == "") $team->teamNumber = "000";
@@ -91,21 +96,21 @@
             <tr>
                 <td data-label="Évolution">
                     <?php
-                        if($team->passedRaceStop == 1) echo '<i class="fa-solid fa-flag-checkered themed"></i>';
-                        elseif($team->tendance == -1)  echo '<i class="fa-solid fa-angle-up green"></i>';
-                        elseif($team->tendance ==  0)  echo '<i class="fa-solid fa-minus turquoise"></i>';
-                        elseif($team->tendance ==  1)  echo '<i class="fa-solid fa-angle-down red"></i>';
-                        else                           echo '<i class="fa-solid fa-question themed></i>"';
+                        if($team->passedRaceStop == 1) echo('<i class="fa-solid fa-flag-checkered themed"></i>');
+                        elseif($team->tendance == -1)  echo('<i class="fa-solid fa-angle-up green"></i>');
+                        elseif($team->tendance ==  0)  echo('<i class="fa-solid fa-minus turquoise"></i>');
+                        elseif($team->tendance ==  1)  echo('<i class="fa-solid fa-angle-down red"></i>');
+                        else                           echo('<i class="fa-solid fa-question themed></i>"');
                     ?>
                 </td>
-                <?php echo "<td data-label='Rang'>".$team->rang."</td>"?>
-                <?php echo "<td data-label='N°' class='".$categoryClass."'>".$team->teamNumber."</td>"?>
-                <?php echo "<td data-label='Équipage'>".ucfirst($team->teamName)."</td>"?>
-                <?php echo "<td data-label='Nombre de Tours'>".$team->tours."</td>"?>
-                <?php echo "<td data-label='Meilleur Temps'>".$bestTimeString."</td>"?>
-                <?php echo "<td data-label='Dernier Temps'>&nbsp;".$team->lastTime."</td>" ?>
-                <?php echo "<td data-label='Ecart Précédent'>".$team->ecartPrev."</td>"?>
-                <?php echo "<td data-label='Ecart Premier'>".$team->ecartFirst."</td>"?>
+                <?php echo("<td data-label='Rang'>".htmlspecialchars($team->rang, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td data-label='N°' class='".$categoryClass."'>".htmlspecialchars($team->teamNumber, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td data-label='Équipage'>".htmlspecialchars(ucfirst($team->teamName), ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td data-label='Nombre de Tours'>".$team->tours."</td>")?>
+                <?php echo("<td data-label='Meilleur Temps'>".$bestTimeString."</td>")?>
+                <?php echo("<td data-label='Dernier Temps'>&nbsp;".$team->lastTime."</td>")?>
+                <?php echo("<td data-label='Ecart Précédent'>".$team->ecartPrev."</td>")?>
+                <?php echo("<td data-label='Ecart Premier'>".$team->ecartFirst."</td>")?>
             </tr>
 
             <?php
@@ -113,5 +118,5 @@
             ?>
         </tbody>
     </table>
-    <span>Dernier rafraichissement des données : <?php echo $now ?></span>
+    <span>Dernier rafraichissement des données : <?php safe_echo($now) ?></span>
 </div>
