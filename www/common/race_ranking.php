@@ -52,20 +52,20 @@
     <span class='back'><a href='index.html'><i class="fa-solid fa-arrow-left-long"></i> Retour</a></span>
 
     <h2><?php safe_echo(ucfirst($xml->attributes()->plateau). " | " . ucfirst($xml->attributes()->race)) ?></h2>
-    <span>Derniere mise à jour du classement : <?php safe_echo($xml->attributes()->timegen) ?></span>
+    <span>Derniere mise à jour des données : <?php safe_echo($xml->attributes()->timegen) ?></span>
     
     <table>
         <thead>
             <tr>
-                <th scope="col">Évol.</th>
-                <th scope="col">Rang</th>
-                <th scope="col">N°</th>
-                <th scope="col">Équipage</th>
-                <th scope="col">Nbr. Tours</th>
-                <th scope="col">Meilleur Temps (Tour)</th>
-                <th scope="col">Dernier Temps</th>
-                <th scope="col">Écart Précédent</th>
-                <th scope="col">Écart 1<sup>er</sup></th>
+                <th id="trend" scope="col">Évol.</th>
+                <th id="rank" scope="col">Rang</th>
+                <th id="team_number" scope="col">N°</th>
+                <th id="team_name" scope="col">Équipage</th>
+                <th id="laps" scope="col">Nbr. Tours</th>
+                <th id="best_lap" scope="col">Meilleur Temps (Tour)</th>
+                <th id="last_lap" scope="col">Dernier Temps</th>
+                <th id="previous" scope="col">Écart Précédent</th>
+                <th id="first" scope="col">Écart 1<sup>er</sup></th>
             </tr>
         </thead>
         <tbody>
@@ -96,21 +96,22 @@
             <tr>
                 <td data-label="Évolution">
                     <?php
-                        if($team->passedRaceStop == 1) echo('<i class="fa-solid fa-flag-checkered themed"></i>');
-                        elseif($team->tendance == -1)  echo('<i class="fa-solid fa-angle-up green"></i>');
-                        elseif($team->tendance ==  0)  echo('<i class="fa-solid fa-minus turquoise"></i>');
-                        elseif($team->tendance ==  1)  echo('<i class="fa-solid fa-angle-down red"></i>');
-                        else                           echo('<i class="fa-solid fa-question themed></i>"');
+                        if($team->passedRaceStop == 1) echo('<i id="trend" class="fa-solid fa-flag-checkered themed"></i>');
+                        elseif($team->tendance == -1)  echo('<i id="trend" class="fa-solid fa-angle-up green"></i>');
+                        elseif($team->tendance ==  0)  echo('<i id="trend" class="fa-solid fa-minus turquoise"></i>');
+                        elseif($team->tendance ==  1)  echo('<i id="trend" class="fa-solid fa-angle-down red"></i>');
+                        else                           echo('<i id="trend" class="fa-solid fa-question themed></i>"');
                     ?>
                 </td>
-                <?php echo("<td data-label='Rang'>".htmlspecialchars($team->rang, ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='N°' class='".$categoryClass."'>".htmlspecialchars($team->teamNumber, ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='Équipage'>".htmlspecialchars(ucfirst($team->teamName), ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='Nombre de Tours'>".htmlspecialchars($team->tours, ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='Meilleur Temps'>".htmlspecialchars($bestTimeString, ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='Dernier Temps'>&nbsp;".htmlspecialchars($team->lastTime, ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='Ecart Précédent'>".htmlspecialchars($team->ecartPrev, ENT_QUOTES, 'UTF-8')."</td>")?>
-                <?php echo("<td data-label='Ecart Premier'>".htmlspecialchars($team->ecartFirst, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='rank' data-label='Rang'>".htmlspecialchars($team->rang, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='team_number' data-label='N°' class='".$categoryClass."'>".htmlspecialchars($team->teamNumber, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='team_name' data-label='Équipage'>".htmlspecialchars(ucfirst($team->teamName), ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='laps' data-label='Nombre de Tours'>".htmlspecialchars($team->tours, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='best_lap' data-label='Meilleur Temps'>".htmlspecialchars($bestTimeString, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='last_lap' data-label='Dernier Temps'>&nbsp;".htmlspecialchars($team->lastTime, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='previous' data-label='Ecart Précédent'>".htmlspecialchars($team->ecartPrev, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <?php echo("<td id='first' data-label='Ecart Premier'>".htmlspecialchars($team->ecartFirst, ENT_QUOTES, 'UTF-8')."</td>")?>
+                <td id=more class="back"><a <?php echo('href="index.html?race='.$_GET['race'].'&team='.$team->teamNumber.'"')?>><i class="fa-solid fa-plus"></i></a></td>
             </tr>
 
             <?php
@@ -118,5 +119,5 @@
             ?>
         </tbody>
     </table>
-    <span>Dernier rafraichissement des données : <?php safe_echo($now) ?></span>
+    <span>Dernier rafraichissement de la page : <?php safe_echo($now) ?></span>
 </div>

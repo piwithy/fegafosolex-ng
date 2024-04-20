@@ -85,7 +85,11 @@ nav .mobile-empty{
     margin-top: 0em;
 }
 
-
+#footer {
+    text-align: center;
+    color: #4a536e;
+    margin-top: 0;
+}
 
 .red{
     color: red;
@@ -122,12 +126,41 @@ nav .mobile-empty{
     text-align: left;
 }
 
+#more_info table{
+    width: 100%;
+    font-size: 1.2em;
+}
+
+#more_info table th{
+    text-transform: uppercase;
+}
+
+#more_info table th sup{
+    text-transform: lowercase;
+}
+
+#more_info table td {
+    border-top: 1px #dee0e4 solid;
+    text-align: center;
+}
+
+
+#more_info table td:nth-child(4){
+    text-align: left;
+}
+
 .themed {
     color:#4a536e;
 }
 
 
 .back a {
+    text-decoration: none;
+    color: #4a536e;
+    display: inline-block;
+    padding: 5px;
+}
+#footer a {
     text-decoration: none;
     color: #4a536e;
     display: inline-block;
@@ -195,6 +228,9 @@ nav .mobile-empty{
     background-color: white;
 }
 
+#ranking #more {
+    visibility: hidden;
+}
 
 /* Narrow Screen Style */
 @media screen and (max-width: 1080px){
@@ -202,11 +238,57 @@ nav .mobile-empty{
         width: 100%;
     }
 
+
     #ranking table{
         border: 0;
     }
+    #ranking #more{
+        visibility: visible
+    }
 
-    #ranking table thead{
+    #ranking #best_lap {
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    
+    #ranking #last_lap {
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    #ranking #previous {
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    
+    #ranking #first {
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+
+    #more_info table thead{
         border: none;
         clip: rect(0 0 0 0);
         height: 1px;
@@ -217,24 +299,24 @@ nav .mobile-empty{
         width: 1px;
     }
 
-    #ranking table tr {
+    #more_info table tr {
         border-bottom: 3px solid #ddd;
         display: block;
         margin-bottom: .625em;
     }
 
-    #ranking table td:nth-child(4){
+    #more_info table td:nth-child(4){
         text-align: right;
     }
 
-    #ranking table td {
+    #more_info table td {
         border-bottom: 1px solid #ddd;
         display: block;
         font-size: .8em;
         text-align: right;
     }
 
-    #ranking table td::before{
+    #more_info table td::before{
         content: attr(data-label);
         float: left;
         font-weight: bold;
@@ -284,6 +366,14 @@ nav .mobile-empty{
     }
 
     .back a{
+        color:rgb(182, 173, 146);
+    }
+
+    #footer {
+        color: rgb(182, 173, 146)
+    }
+
+    #footer a{
         color:rgb(182, 173, 146);
     }
 
