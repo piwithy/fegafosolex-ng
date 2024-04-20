@@ -45,13 +45,14 @@
             </div>
         </div>
         <script type="text/javascript">
+            const refresh_timer=10000;
             $(document).ready(function () {
                 const appName = "FegafOSolex NG";
                 const urlParams = new URLSearchParams(window.location.search);
                 if(urlParams.get("race") == null){
                     $('#content').load("common/race_selector.php");
                     $(document).prop('title', `${appName} | Les Courses Solex en Live !`)
-                }else{
+                }else if(urlParams.get("team") == null){
                     let race_str = urlParams.get("race").replaceAll(" ", "%20");
                     let page_title = urlParams.get("race").substring(0, urlParams.get("race").length - 4);
                     if(urlParams.get("race") == "lastmod"){
@@ -61,9 +62,29 @@
                     $(document).prop('title', `${appName} | ${page_title}`);
                     setInterval(function () {
                         $('#content').load(`common/race_ranking.php?race=${race_str}`);
-                    }, 10000);
+                    }, refresh_timer);
+                } else {
+                    let race_str = urlParams.get("race").replaceAll(" ", "%20");
+                    let team_number = urlParams.get("team").replaceAll(" ", "%20");
+                    let page_title = urlParams.get("race").substring(0, urlParams.get("race").length - 4);
+                    if(urlParams.get("race") == "lastmod"){
+                        page_title = "Course Active";
+                    }
+                    page_title = `${page_title} | Equipe ${team_number}`
+                    $('#content').load(`common/more_info.php?race=${race_str}&team=${team_number}`);
+                    $(document).prop('title', `${appName} | ${page_title}`);
+                    setInterval(function () {
+                        $('#content').load(`common/more_info.php?race=${race_str}&team=${team_number}`);
+                    }, refresh_timer);
+
                 }
             });
         </script>
+        <div id="footer" class="content">
+            <p>
+                Copyright © <a href="https://solexiroise.fr">Solex Iroise</a> 2022 - <script>document.write(new Date().getFullYear().toString())</script></br>
+                Tracté par Galet
+            </p>
+        </div>
     </body>
 </html>
