@@ -30,7 +30,7 @@
     $xml = simplexml_load_string($race_data);
         
     if($xml == false){ // IF there is encoding error force UTF-8
-        $race_data_utf8 = utf8_encode($race_data);
+        $race_data_utf8 = to_utf8($race_data);
         $xml = simplexml_load_string($race_data_utf8);
     }
 

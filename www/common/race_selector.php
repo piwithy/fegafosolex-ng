@@ -12,24 +12,35 @@
 
 
 
-<div id="selector">
-    <h2>Sélectionnez une course</h2>
-    <br>
-    <form action="index.html" method="GET"> 
-        <select id="raceSelector" name="race">
-            <option value="lastmod">(Course&nbsp;Active)</option>
-            <?php
-                $array_length = count($race_list);
-                echo($array_length);
-                for($i=0 ; $i<$array_length ; $i++){
-                    $val = $race_list[$i];
-                    $noext_val = substr($val, 0, -4);
-                    if($val == $lastmod_race) $noext_val .= " (Active)";
-                    print("<option value='$val'>$noext_val</option>");
-                }
+<div class="cards-container">
+    <div class="card featured">
+        <a href="index.html?race=lastmod">
+            <div class="container">
+                <h4><b>Course Active</b></h4>
+            </div>
+        </a>
+    </div>
+    <?php
+        $array_length = count($race_list);
+        for ($i=0; $i<$array_length; $i++){
+            $val = $race_list[$i];
+            $noext_val = substr($val, 0, -4);
+            if ($val == $lastmod_race){
+                print("<div class='card featured'>");
+            }else{
+                print("<div class='card'>");
+            }
+            print("<a href='index.html?race=$val''>")
             ?>
-            <!-- TODO add PHP Generated selection -->
-        </select>
-        <input type="submit" value="Ok">
-    </form>
+                    <div class="container">
+                        <?php
+                        print("<h4><b>$noext_val</b></h4>")
+                        ?>
+                    </div>
+                </a>
+            </div>
+            <?php
+        }
+    ?>
 </div>
+

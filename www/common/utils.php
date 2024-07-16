@@ -49,4 +49,8 @@ function get_race_list($fegaf_requester_url){
     $race_list = array_values($race_list); // re-aligning to zero array after fitlering
     return $race_list;
 }
-?>
+
+
+function to_utf8($str){
+    return array_map(function ($item){return mb_convert_encoding($item, "UTF-8", mb_detect_encoding($item));},$str);
+}

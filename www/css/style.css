@@ -232,6 +232,54 @@ nav .mobile-empty{
     visibility: hidden;
 }
 
+
+.cards-container a {
+    text-decoration: none;
+    color: black;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    width: 30%;
+    min-width: 250px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+
+.featured {
+    background-color: #121212;
+    color: white;
+}
+
+
+.featured a {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.card:hover{
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
+}
+
+/*.featured:hover {
+    box-shadow: 0 12px 24px 0 rgba(220, 20, 60, 0.5);
+}*/
+
+.container {
+    padding: 2px 16px;
+}
+
+.cards-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 /* Narrow Screen Style */
 @media screen and (max-width: 1080px){
     .content{
@@ -353,6 +401,31 @@ nav .mobile-empty{
         background-color: #121212;
         color: white;
     }
+    .cards-container a {
+        color: white;
+    }
+
+    .card{
+        background-color: #141414;
+        box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
+
+    }
+
+    .card:hover{
+        box-shadow: 0 12px 24px 0 rgba(255,255,255,0.2);
+
+    }
+
+    .featured {
+        background-color: #d3d4d7;
+        color: white;
+    }
+    
+    
+    .featured a {
+        text-decoration: none;
+        color: black;
+    }
 
     .content > p, .content > div {
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
@@ -387,4 +460,3 @@ nav .mobile-empty{
     }
 
 }
-
