@@ -38,7 +38,7 @@ function get_race_list($fegaf_requester_url){
     $race_list_raw = query_data($fegaf_requester_url."?ls");
     
     $race_list_regex;
-    preg_match_all("/(?:^|\s)([A-Za-z\.\ \-0-9]+)(?:\|)(?:[0-9]+|DIR)/", $race_list_raw, $race_list_regex);
+    preg_match_all("/(?:^|\s)([A-Za-zéèàù,\.\ \-0-9]+)(?:\|)(?:[0-9]+|DIR)/", $race_list_raw, $race_list_regex);
     
     $race_list = $race_list_regex[1];
 
