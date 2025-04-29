@@ -193,6 +193,11 @@ nav .mobile-empty{
     background-color: blue;
 }
 
+.origine_amelioree {
+    color: white;
+    background-color: blue;
+}
+
 .origine {
     color: black;
     background-color: rgb(255, 255, 255);
@@ -204,6 +209,11 @@ nav .mobile-empty{
 }
 
 .mob_ameliore{
+    color: orange;
+    background-color: blue;
+}
+
+.mob_amelioree{
     color: orange;
     background-color: blue;
 }
