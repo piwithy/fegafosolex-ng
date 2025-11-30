@@ -1,4 +1,4 @@
-FROM php:8-fpm-bookworm
+FROM php:8-fpm-trixie
 
 # Copying PHP Prod Config
 RUN cp 	/usr/local/etc/php/php.ini-production 	/usr/local/etc/php/php.ini
