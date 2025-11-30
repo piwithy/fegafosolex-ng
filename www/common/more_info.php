@@ -22,7 +22,7 @@
         }
         $data_url = $fegaf_data_url.$_GET['race'];
     }
-    $data_url = str_replace(" ", "%20", $data_url);
+    $data_url = htmlspecialchars(str_replace(" ", "%20", $data_url));
 
     $race_data = query_data($data_url);
 
@@ -83,7 +83,7 @@
 ?>
 
 <div id="more_info">
-    <span class='back'><a <?php echo("href='index.html?race=".$_GET['race']."'")?>><i class="fa-solid fa-arrow-left-long"></i> Retour</a></span>
+    <span class='back'><a <?php echo(htmlspecialchars("href=index.html?race=".str_replace(" ", "%20", $_GET['race'])))?>><i class="fa-solid fa-arrow-left-long"></i> Retour</a></span>
 
     <h2><?php safe_echo(ucfirst($xml->attributes()->plateau). " | " . ucfirst($xml->attributes()->race)) ?></h2>
     <span>Derniere mise à jour des données : <?php safe_echo($xml->attributes()->timegen) ?></span>

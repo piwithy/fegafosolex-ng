@@ -22,7 +22,7 @@
         }
         $data_url = $fegaf_data_url.$_GET['race'];
     }
-    $data_url = str_replace(" ", "%20", $data_url);
+    $data_url = htmlspecialchars(str_replace(" ", "%20", $data_url));
 
     $race_data = query_data($data_url);
 
@@ -111,7 +111,7 @@
                 <?php echo("<td id='last_lap' data-label='Dernier Temps'>&nbsp;".htmlspecialchars($team->lastTime, ENT_QUOTES, 'UTF-8')."</td>")?>
                 <?php echo("<td id='previous' data-label='Ecart Précédent'>".htmlspecialchars($team->ecartPrev, ENT_QUOTES, 'UTF-8')."</td>")?>
                 <?php echo("<td id='first' data-label='Ecart Premier'>".htmlspecialchars($team->ecartFirst, ENT_QUOTES, 'UTF-8')."</td>")?>
-                <td id=more class="back"><a <?php echo('href="index.html?race='.$_GET['race'].'&team='.$team->teamNumber.'"')?>><i class="fa-solid fa-plus"></i></a></td>
+                <td id=more class="back"><a <?php echo(htmlspecialchars('href=index.html?race='.str_replace(" ", "%20", $_GET['race']).'&team='.$team->teamNumber))?>><i class="fa-solid fa-plus"></i></a></td>
             </tr>
 
             <?php
