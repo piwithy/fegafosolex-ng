@@ -200,7 +200,7 @@ nav .mobile-empty{
 
 .origine {
     color: black;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
 }
 
 .electrique {
@@ -231,6 +231,11 @@ nav .mobile-empty{
 .mecaboite_50cc{
     color: red;
     background-color: black;
+}
+
+.special{
+    color: white;
+    background-color: red;
 }
 
 .unknown{
